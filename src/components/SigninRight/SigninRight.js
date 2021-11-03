@@ -3,25 +3,17 @@ import {useState} from 'react';
 import FormInput from "../FormInput/FormInput"
 import CustomButton from '../CustomButton/CustomButton';
 
-import './SigninSignupRight.css';
+import './SigninRight.css';
 
 export default function SigninSignupRight() {
-  const [email,setEmail] = useState('');
   const [username,setUsername] = useState('');
   const [password,setPassword] = useState('');
-  const [secondPassword,setSecondPassword]=useState('');
 
   const handleChange = e => {
     const {value,name} = e.target;
     switch(name){
-      case 'email':
-        setEmail(value)
-        break;
       case 'password':
         setPassword(value)
-        break;
-      case 'secondPassword':
-        setSecondPassword(value)
         break;
       case 'username':
         setUsername(value)
@@ -30,21 +22,20 @@ export default function SigninSignupRight() {
         break;
     }
   }
+  
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log({username,password});
+    setUsername('');
+    setPassword('');
+  }
 
   return (
-    <div className="wrappa">
-    <div className="sign-in">
-      <h2 className="title">Kayıt Ol</h2>
+    <div className="sign-in-wrapper">
+    <div className="sign-in-sub-wrapper">
+      <h2 className="title">Giriş Yap</h2>
       <div className="cizgi" style={{background:'#00a2ff',width:'21%'}}></div>
-      <form>
-        <FormInput 
-          name="email"
-          type="email"
-          value={email}
-          handleChange={handleChange}
-          label="Email"
-          required
-        />
+      <form onSubmit={handleSubmit}>
         <FormInput 
           name="username"
           value={username}
@@ -60,18 +51,13 @@ export default function SigninSignupRight() {
           label="Şifre"
           required
         />
-        <FormInput 
-          name="secondPassword"
-          type="password"
-          value={secondPassword}
-          handleChange={handleChange}
-          label="Şifre tekrarı"
-          required
-        />
-         <CustomButton type='submit'>
-          KAYIT OL
+        <CustomButton type='submit'>
+          GİRİŞ YAP
         </CustomButton>
       </form>
+      <a href="/signup" className="forgotPassword">
+        Şifremi unuttum
+      </a>
     </div>
     </div>
   )

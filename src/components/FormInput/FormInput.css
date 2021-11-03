@@ -4,7 +4,7 @@
 }
 .form-input {
   background: none;
-  color: grey;
+  color: #404040;
   font-size: 22px;
   padding: 10px 10px 10px 5px;
   display: block;
@@ -39,6 +39,6 @@ input[type='password'] {
 .form-input-label.shrink{
   top: -14px;
   font-size: 12px;
-  color: black;
+  color: #404040;
 }
 

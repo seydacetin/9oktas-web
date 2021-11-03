@@ -1,8 +1,8 @@
-.wrappa{
+.sign-up-wrapper{
   display:flex;
   justify-content: center;
 }
-.sign-in{
+.sign-up-wrapper  .sign-up-sub-wrapper{
   padding-top:10%;
   width:80%;
   display:flex;
@@ -10,7 +10,7 @@
   align-items:center;
   justify-content: center;
 }
-.sign-in form{
+.sign-up-sub-wrapper form{
   width:100%;
   text-align:center;
 }

@@ -4,23 +4,23 @@ import CustomButton from '../CustomButton/CustomButton';
 
 import './SigninSignupLeft.css'
 
-export default function SigninSignupLeft() {
+export default function SigninSignupLeft({header,paragraphs,btnText,btnLinksTo}) {
   return (
     <div className="welcome-wrapper">
-      <h2 className="welcome-header">9oktas.com Sitesine Hoşgeldiniz</h2>
+      <h2 className="welcome-header">{header}</h2>
       <div className="cizgi" style={{background:'#f8ffff',width:'35%'}}></div>
-      <p className="welcome-p">
-        Dijital varlıklarınızı güvenle saklayabilmek için en ideal bulut yedekleme platformu.
-      </p>
-      <p className="welcome-p">
-        Şimdi üye olun ve dijital varlıklarınızı 9oktas farkıyla saklayın.
-      </p>
-      <p className="welcome-p">
-        Zaten bir hesabın var mı ?
-      </p>
-      <Link to='/signin'>
-        <CustomButton style={{marginTop:'5%'}} type='submit' isTransparent >
-          GİRİŞ YAP
+      { 
+        paragraphs && paragraphs.map(p=>{
+          return(
+            <p className="welcome-p">
+              {p}
+            </p>
+          )
+        })
+      }
+      <Link to={`/${btnLinksTo}`}>
+        <CustomButton style={{marginTop:'5%'}} isTransparent >
+          {btnText}
         </CustomButton>
       </Link>
     </div>
